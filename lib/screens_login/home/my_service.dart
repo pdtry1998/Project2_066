@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/screens/home_screen/home.dart';
+import 'package:project/screens_Thalang/thalang.dart';
 import 'package:project/screens_add_show/screens/add_list_product.dart';
 import 'package:project/screens_add_show/screens/show_list_product.dart';
 import 'package:project/screens_kathu/kathu.dart';
@@ -92,7 +93,7 @@ class _MyServiceState extends State<MyService> {
       title: Text('Thalang'),
       subtitle: Text('อำเภอถลาง จังหวัดภูเก็ต'),
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> FirstScreen()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Thalang()));
       },
     );
   }
