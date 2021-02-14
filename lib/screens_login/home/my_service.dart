@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:project/screens/home_screen/home.dart';
 import 'package:project/screens_add_show/screens/add_list_product.dart';
 import 'package:project/screens_add_show/screens/show_list_product.dart';
+import 'package:project/screens_kathu/kathu.dart';
 import 'package:project/screens_login/home/widget/home_screen.dart';
 import 'package:project/screens_mueang/mueange.dart';
 
@@ -80,7 +81,7 @@ class _MyServiceState extends State<MyService> {
       title: Text('Kathu'),
       subtitle: Text('อำเภอกะทู้ จังหวัดภูเก็ต'),
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> FirstScreen()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Kathu()));
       },
     );
   }
