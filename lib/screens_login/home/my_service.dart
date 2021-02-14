@@ -102,7 +102,7 @@ class _MyServiceState extends State<MyService> {
       title: Text('Logout'),
       subtitle: Text('ออกจากระบบ'),
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Mueange()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomeScreen() ));
       },
     );
   }
