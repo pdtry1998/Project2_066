@@ -118,7 +118,7 @@ class _AddListProductState extends State<AddListProduct> {
         },
         decoration: InputDecoration(
           helperText: 'Type Your Name of Product',
-          labelText: 'Name Produce',
+          labelText: 'Name ',
           icon: Icon(Icons.motorcycle),
         ),
       ),
@@ -134,7 +134,7 @@ class _AddListProductState extends State<AddListProduct> {
         },
         decoration: InputDecoration(
           helperText: 'Type Your Detail of Product',
-          labelText: 'Detail Produce',
+          labelText: 'Detail ',
           icon: Icon(Icons.details),
         ),
       ),

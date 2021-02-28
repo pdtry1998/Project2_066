@@ -252,7 +252,7 @@ class _FirstScreenState extends State<FirstScreen> {
           Slider_First(),
           SizedBox(height: 15.0), // ปุ่มดูทั้งหมด
           DestinationCarousel(), // ส่วนแนะนำของหน้าแรก
-          Third(),
+          //Third(),
           //SizedBox(height: 5.0),
           InterpolateCarousel(), //ส่วนเพิ่มเติมของหน้าแรก
 

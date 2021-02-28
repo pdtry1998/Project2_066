@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_login/home/home.dart';
 import 'package:project/screens_login/login/login_with_facebook.dart';
+import 'package:project/screens_login/login/login_with_google.dart';
 
 
 
@@ -42,6 +43,10 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 10.0,
           ),
+          LoginWithGoogle(),
+         SizedBox(
+           height: 10.0,
+         ),
           LoginWithFacebook(),
 
         ],
