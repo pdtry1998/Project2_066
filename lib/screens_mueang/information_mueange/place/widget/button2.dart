@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_mueang/information_mueange/place/widget/map2.dart';
+import 'package:project/screens_mueang/information_mueange/place/widget/review2/screens/home_page.dart';
 
 
 
@@ -67,7 +68,7 @@ class Button_2 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHome2();
                       //return LoginPage();
                       //return Login3();
                     },

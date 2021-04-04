@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:project/screens_mueang/information_mueange/place/widget/reviews/screens/add_item_page.dart';
 import 'package:project/screens_mueang/information_mueange/place/widget/reviews/screens/item_page.dart';
 
-class HomePage extends StatefulWidget {
-  _HomePageState createState() => _HomePageState();
+class PageHome extends StatefulWidget {
+  _PageHomeState createState() => _PageHomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PageHomeState extends State<PageHome> {
   @override
   void initState() {
     super.initState();
@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("้่เ้่เ้่เ้่เ่้เ่เ้่"),
+        title: Text("รีวิว"),
       ),
       body: StreamBuilder(
         stream: Firestore.instance.collection("catalog").snapshots(),
