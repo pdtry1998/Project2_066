@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
-//import 'package:traditional_in_phuket/components/show_notification.dart';
 import 'package:project/screens_mueang/information_mueange/place/widget/reviews/components/show_notification.dart';
 import 'logger_service.dart';
 
