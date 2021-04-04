@@ -154,7 +154,7 @@ class _AuthenState extends State<Authen> {
 
   Widget okButton() {
     return FlatButton(
-      child: Text('OK'),
+      child: Text('O'),
       onPressed: () {Navigator.of(context).pop();},
     );
   }
