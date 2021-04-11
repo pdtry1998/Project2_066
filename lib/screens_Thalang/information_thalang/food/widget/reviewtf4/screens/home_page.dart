@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:project/screens_Thalang/information_thalang/food/widget/reviewtf1/screens/add_item_page.dart';
-import 'package:project/screens_Thalang/information_thalang/food/widget/reviewtf1/screens/item_page.dart';
+import 'package:project/screens_Thalang/information_thalang/food/widget/reviewtf4/screens/add_item_page.dart';
+import 'package:project/screens_Thalang/information_thalang/food/widget/reviewtf4/screens/item_page.dart';
 
-class PageHometf1 extends StatefulWidget {
-  _PageHometf1State createState() => _PageHometf1State();
+class PageHometf4 extends StatefulWidget {
+  _PageHometf4State createState() => _PageHometf4State();
 }
 
-class _PageHometf1State extends State<PageHometf1> {
+class _PageHometf4State extends State<PageHometf4> {
   @override
   void initState() {
     super.initState();
@@ -20,7 +20,7 @@ class _PageHometf1State extends State<PageHometf1> {
         title: Text("รีวิว"),
       ),
       body: StreamBuilder(
-        stream: Firestore.instance.collection("catalogtf1").snapshots(),
+        stream: Firestore.instance.collection("catalogtf4").snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -44,7 +44,7 @@ class _PageHometf1State extends State<PageHometf1> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(  // ส่วนลิ้งไปหน้าถัดไป
-                                  builder: (context) => ItemPagetf1(
+                                  builder: (context) => ItemPagetf4(
                                     pdname: snapshot
                                         .data.documents[index].documentID,
                                     pddescription: snapshot
@@ -78,7 +78,7 @@ class _PageHometf1State extends State<PageHometf1> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AddItemPagetf1()),);},
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AddItemPagetf4()),);},
         child: Icon(Icons.border_color),
       ),
     );
