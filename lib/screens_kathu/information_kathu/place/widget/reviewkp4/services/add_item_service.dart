@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
-import 'package:project/screens_kathu/information_kathu/place/widget/reviewkp2/components/show_notification.dart';
+import 'package:project/screens_kathu/information_kathu/place/widget/reviewkp4/components/show_notification.dart';
 import 'logger_service.dart';
 
-Future<void> addItemkp2(
+Future<void> addItemkp4(
     BuildContext context, Map<String, dynamic> data, String documentName) {
   return Firestore.instance
-      .collection("catalogkp2")  // ชื่อ collection on firestore
+      .collection("catalogkp4")  // ชื่อ collection on firestore
       .document(documentName)
       .setData(data)
       .then((returnData) {
-    showMessageBoxkp2(context, "Success", "Added item($documentName) to Firestore",
+    showMessageBoxkp4(context, "Success", "Added item($documentName) to Firestore",
         actions: [dismissButton(context)]);
     logger.i("setData success");
   }).catchError((e) {
