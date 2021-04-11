@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_kathu/information_kathu/place/widget/kmap1.dart';
-
+import 'package:project/screens_kathu/information_kathu/place/widget/reviewkp1/screens/home_page.dart';
 
 
 
@@ -68,7 +68,7 @@ class kButton_place1 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHomekp1();
                       //return LoginPage();
                       //return Login3();
                     },
