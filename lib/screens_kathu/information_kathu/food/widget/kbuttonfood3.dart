@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_kathu/information_kathu/food/widget/kmapfood3.dart';
-
+import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf3/screens/home_page.dart';
 
 
 
@@ -68,7 +68,7 @@ class kButton_Food3 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHomekf3();
                       //return LoginPage();
                       //return Login3();
                     },
