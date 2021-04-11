@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_mueang/information_mueange/drink/widget/widget/mapdrink3.dart';
-
+import 'package:project/screens_mueang/information_mueange/drink/widget/widget/reviewd3/screens/home_page.dart';
 
 
 
@@ -65,7 +65,7 @@ class ButtonDrink3 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHomed3();
                       //return LoginPage();
                       //return Login3();
                     },
