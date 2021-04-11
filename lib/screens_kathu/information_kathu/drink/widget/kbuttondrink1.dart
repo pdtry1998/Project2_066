@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_kathu/information_kathu/drink/widget/kmapdrink1.dart';
-
+import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd1/screens/home_page.dart';
 
 
 class kButton_Drink1 extends StatelessWidget {
@@ -64,7 +64,7 @@ class kButton_Drink1 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHomekd1();
                       //return LoginPage();
                       //return Login3();
                     },
