@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_Thalang/information_thalang/place/widget/tmapplace4.dart';
-
+import 'package:project/screens_Thalang/information_thalang/place/widget/reviewtp4/screens/home_page.dart';
 
 
 
@@ -68,7 +68,7 @@ class tButton_Place4 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHometp4();
                       //return LoginPage();
                       //return Login3();
                     },
