@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd1/screens/add_item_page.dart';
-import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd1/screens/item_page.dart';
+import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd3/screens/add_item_page.dart';
+import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd3/screens/item_page.dart';
 
-class PageHomekd1 extends StatefulWidget {
-  _PageHomekd1State createState() => _PageHomekd1State();
+class PageHomekd3 extends StatefulWidget {
+  _PageHomekd3State createState() => _PageHomekd3State();
 }
 
-class _PageHomekd1State extends State<PageHomekd1> {
+class _PageHomekd3State extends State<PageHomekd3> {
   @override
   void initState() {
     super.initState();
@@ -20,7 +20,7 @@ class _PageHomekd1State extends State<PageHomekd1> {
         title: Text("รีวิว"),
       ),
       body: StreamBuilder(
-        stream: Firestore.instance.collection("catalogkd1").snapshots(),
+        stream: Firestore.instance.collection("catalogkd3").snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -44,7 +44,7 @@ class _PageHomekd1State extends State<PageHomekd1> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(  // ส่วนลิ้งไปหน้าถัดไป
-                                  builder: (context) => ItemPagekd1(
+                                  builder: (context) => ItemPagekd3(
                                     pdname: snapshot
                                         .data.documents[index].documentID,
                                     pddescription: snapshot
@@ -78,7 +78,7 @@ class _PageHomekd1State extends State<PageHomekd1> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AddItemPagekd1()),);},
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AddItemPagekd3()),);},
         child: Icon(Icons.border_color),
       ),
     );

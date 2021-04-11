@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd1/services/add_item_service.dart';
-import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd1/components/show_notification.dart';
-import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd1/services/logger_service.dart';
+import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd3/services/add_item_service.dart';
+import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd3/components/show_notification.dart';
+import 'package:project/screens_kathu/information_kathu/drink/widget/reviewkd3/services/logger_service.dart';
 
 
-class AddItemPagekd1 extends StatefulWidget {
-  AddItemPagekd1({Key key}) : super(key: key);
+class AddItemPagekd3 extends StatefulWidget {
+  AddItemPagekd3({Key key}) : super(key: key);
 
   @override
-  _AddItemPagekd1State createState() => _AddItemPagekd1State();
+  _AddItemPagekd3State createState() => _AddItemPagekd3State();
 }
 
-class _AddItemPagekd1State extends State<AddItemPagekd1> {
+class _AddItemPagekd3State extends State<AddItemPagekd3> {
   final pdname = TextEditingController();
   final pddes = TextEditingController();
 
@@ -46,12 +46,12 @@ class _AddItemPagekd1State extends State<AddItemPagekd1> {
                         child: Text("Add items"),
                         onPressed: () {
                           if (pdname.text == "" || pddes.text == "") {
-                            showMessageBoxkd1(context, "Error",
+                            showMessageBoxkd3(context, "Error",
                                 "Please enter name and detail before adding it to firebase",
                                 actions: [dismissButton(context)]);
                             logger.e("pdname or pddes can't be null");
                           } else {
-                            addItemkd1(
+                            addItemkd3(
                                 context,
                                 {"name": pdname.text, "description": pddes.text},
                                 pdname.text);

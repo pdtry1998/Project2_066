@@ -1,24 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class ItemPagekd1 extends StatefulWidget {
+class ItemPagekd3 extends StatefulWidget {
   final String pdname;
   final String pddescription;
-  ItemPagekd1({Key key, @required this.pdname, @required this.pddescription})
+  ItemPagekd3({Key key, @required this.pdname, @required this.pddescription})
       : super(key: key);
 
   @override
-  _ItemPagekd1State createState() => _ItemPagekd1State();
+  _ItemPagekd3State createState() => _ItemPagekd3State();
 }
 
-class _ItemPagekd1State extends State<ItemPagekd1> {
+class _ItemPagekd3State extends State<ItemPagekd3> {
   String pddescription = "Please wait...";
 
   @override
   void initState() {
     super.initState();
     Firestore.instance
-        .collection("catalogkd1")
+        .collection("catalogkd3")
         .document(widget.pdname)
         .get()
         .then((value) {
