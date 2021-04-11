@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf1/services/add_item_service.dart';
-import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf1/components/show_notification.dart';
-import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf1/services/logger_service.dart';
+import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf2/services/add_item_service.dart';
+import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf2/components/show_notification.dart';
+import 'package:project/screens_kathu/information_kathu/food/widget/reviewkf2/services/logger_service.dart';
 
 
-class AddItemPagekf1 extends StatefulWidget {
-  AddItemPagekf1({Key key}) : super(key: key);
+class AddItemPagekf2 extends StatefulWidget {
+  AddItemPagekf2({Key key}) : super(key: key);
 
   @override
-  _AddItemPagekf1State createState() => _AddItemPagekf1State();
+  _AddItemPagekf2State createState() => _AddItemPagekf2State();
 }
 
-class _AddItemPagekf1State extends State<AddItemPagekf1> {
+class _AddItemPagekf2State extends State<AddItemPagekf2> {
   final pdname = TextEditingController();
   final pddes = TextEditingController();
 
@@ -46,12 +46,12 @@ class _AddItemPagekf1State extends State<AddItemPagekf1> {
                         child: Text("Add items"),
                         onPressed: () {
                           if (pdname.text == "" || pddes.text == "") {
-                            showMessageBoxkf1(context, "Error",
+                            showMessageBoxkf2(context, "Error",
                                 "Please enter name and detail before adding it to firebase",
                                 actions: [dismissButton(context)]);
                             logger.e("pdname or pddes can't be null");
                           } else {
-                            addItemkf1(
+                            addItemkf2(
                                 context,
                                 {"name": pdname.text, "description": pddes.text},
                                 pdname.text);
