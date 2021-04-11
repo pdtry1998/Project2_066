@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/logger_service.dart';
 
-void showNotificationkm1(BuildContext context,
+void showNotificationkm3(BuildContext context,
     {AlertDialog alertContent, Stack stackContent}) async {
   try {
     return showDialog(
@@ -16,7 +16,7 @@ void showNotificationkm1(BuildContext context,
   }
 }
 
-void showMessageBoxkm1(BuildContext context, String titleText, String contentText,
+void showMessageBoxkm3(BuildContext context, String titleText, String contentText,
     {List<Widget> actions}) async {
   try {
     return showDialog(

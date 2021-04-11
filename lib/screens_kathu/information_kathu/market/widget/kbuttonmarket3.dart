@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/constant.dart';
 import 'package:project/screens_kathu/information_kathu/market/widget/kmapmarket3.dart';
-
+import 'package:project/screens_kathu/information_kathu/market/widget/reviewkm3/screens/home_page.dart';
 
 
 
@@ -67,7 +67,7 @@ class kButton_Market3 extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      //return LoginScreen();
+                      return PageHomekm3();
                       //return LoginPage();
                       //return Login3();
                     },
