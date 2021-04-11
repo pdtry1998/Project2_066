@@ -7,7 +7,7 @@ import 'logger_service.dart';
 Future<void> addItemkm3(
     BuildContext context, Map<String, dynamic> data, String documentName) {
   return Firestore.instance
-      .collection("catalogkm1")  // ชื่อ collection on firestore
+      .collection("catalogkm3")  // ชื่อ collection on firestore
       .document(documentName)
       .setData(data)
       .then((returnData) {
