@@ -140,16 +140,16 @@ class _MyServiceState extends State<MyService> {
         color: Colors.white,
         fontFamily: 'Mansalva',
         fontWeight: FontWeight.bold,
-        fontSize: 24.0,
+        fontSize: 18.0,
       ),
     );
   }
 
   Widget showLogo() {
     return Container(
-      width: 80.0,
-      height: 80.0,
-      child: Image.asset('assets/images_home/1.1.png'),
+      width: 90.0,
+      height: 90.0,
+      child: Image.asset('assets/images_login/7..2.png'),
     );
   }
 
@@ -157,7 +157,7 @@ class _MyServiceState extends State<MyService> {
     return DrawerHeader(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images_destination/1.jpg'),
+          image: AssetImage('assets/images_destination/3.jpg'),
           fit: BoxFit.cover,
         ),
       ),
