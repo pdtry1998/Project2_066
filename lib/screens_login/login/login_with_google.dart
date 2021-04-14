@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:project/constant.dart';
+import 'package:project/screens_login/home/my_service.dart';
 
 
 
@@ -13,9 +13,10 @@ class LoginWithGoogle extends StatefulWidget {
 }
 
 class _LoginWithGoogleState extends State<LoginWithGoogle> {
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser _user;
 
-  //Authentication authentication = Authentication();
-
+  GoogleSignIn _googleSignIn = new GoogleSignIn();
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,14 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(36),
             side: BorderSide(color: mGoogleColor)),
-        // onPressed: () async{
-        //   await authentication.googleSignin();
-        //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-        //       builder: (context) => MyHomePage()));
-        // },
-        onPressed: (){_googleSignUp(); },
+
+        onPressed: () =>
+            handleSignIn().whenComplete(() {
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (context) => MyService()
+              ));
+            }),
+        //onPressed: () => processSigngInWithGoogle(),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: Row(
@@ -52,29 +55,33 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
   }
 
 
-  Future<void> _googleSignUp() async {
-    try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn(
-        scopes: [
-          'email'
-        ],
-      );
-      final FirebaseAuth _auth = FirebaseAuth.instance;
+  bool isSignIn = false;
 
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+  Future<void> handleSignIn() async {
+    GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleSignInAuthentication =
+    await googleSignInAccount.authentication;
 
-      final AuthCredential credential = GoogleAuthProvider.getCredential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
+    AuthCredential credential = GoogleAuthProvider.getCredential(
+        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken);
 
-      final FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
-      print("signed in " + user.displayName);
+    AuthResult result = (await _auth.signInWithCredential(credential));
 
-      return user;
-    }catch (e) {
-      print(e.message);
-    }
+    _user = result.user;
+
+    setState(() {
+      isSignIn = true;
+    });
   }
+
+  Future<void> gooleSignout() async {
+    await _auth.signOut().then((onValue) {
+      _googleSignIn.signOut();
+      setState(() {
+        isSignIn = true;
+      });
+    });
+  }
+
 }

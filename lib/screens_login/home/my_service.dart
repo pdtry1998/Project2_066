@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:project/screens/home_screen/home.dart';
 import 'package:project/screens_Thalang/thalang.dart';
 import 'package:project/screens_add_show/screens/add_list_product.dart';
@@ -17,6 +18,8 @@ class _MyServiceState extends State<MyService> {
   // Explicit
   String login = '...';
   Widget currentWidget = ShowListProduct();
+  GoogleSignIn _googleSignIn = new GoogleSignIn();
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   // Method
   @override
@@ -103,9 +106,14 @@ class _MyServiceState extends State<MyService> {
       leading: Icon(Icons.exit_to_app, size: 36.0,color: Colors.red.shade900,),
       title: Text('Logout'),
       subtitle: Text('ออกจากระบบ'),
-      onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen() ));
-      },
+      onTap: () => gooleSignout().whenComplete(() {
+        Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (context) => HomeScreen()
+        ));
+      }),
+      // {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen() ));
+      // },
+
     );
   }
 
@@ -247,5 +255,34 @@ class _MyServiceState extends State<MyService> {
       body: currentWidget,
       drawer: showDrawer(),
     );
+  }
+
+
+  bool isSignIn = false;
+
+  // Future<void> handleSignIn() async {
+  //   GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
+  //   GoogleSignInAuthentication googleSignInAuthentication =
+  //   await googleSignInAccount.authentication;
+  //
+  //   AuthCredential credential = GoogleAuthProvider.getCredential(
+  //       idToken: googleSignInAuthentication.idToken,
+  //       accessToken: googleSignInAuthentication.accessToken);
+  //
+  //   AuthResult result = (await _auth.signInWithCredential(credential));
+  //
+  //   _user = result.user;
+  //
+  //   setState(() {
+  //     isSignIn = true;
+  //   });
+  // }
+  Future<void> gooleSignout() async {
+    await _auth.signOut().then((onValue) {
+      _googleSignIn.signOut();
+      setState(() {
+        isSignIn = true;
+      });
+    });
   }
 }
