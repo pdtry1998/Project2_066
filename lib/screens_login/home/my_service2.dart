@@ -9,12 +9,12 @@ import 'package:project/screens_kathu/kathu.dart';
 import 'package:project/screens_login/home/widget/home_screen.dart';
 import 'package:project/screens_mueang/mueange.dart';
 
-class MyService extends StatefulWidget {
+class MyService2 extends StatefulWidget {
   @override
-  _MyServiceState createState() => _MyServiceState();
+  _MyService2State createState() => _MyService2State();
 }
 
-class _MyServiceState extends State<MyService> {
+class _MyService2State extends State<MyService2> {
   // Explicit
   String login = '...';
   Widget currentWidget = ShowListProduct();
@@ -25,7 +25,7 @@ class _MyServiceState extends State<MyService> {
   @override
   void initState() {
     super.initState();
-    findDisplayName();
+    //findDisplayName();
   }
 
 
@@ -43,18 +43,18 @@ class _MyServiceState extends State<MyService> {
     );
   }
 
-  Widget showAddList() {
-    return ListTile(
-      leading: Icon(Icons.add_circle, size: 36.0,color: Colors.blue.shade900,),
-      title: Text('Add List '),subtitle: Text('เพิ่มร้านอาหาร สถานที่แนะนำ'),
-      onTap: () {
-        setState(() {
-          currentWidget = AddListProduct();
-        });
-        Navigator.of(context).pop();
-      },
-    );
-  }
+  // Widget showAddList() {
+  //   return ListTile(
+  //     leading: Icon(Icons.add_circle, size: 36.0,color: Colors.blue.shade900,),
+  //     title: Text('Add List '),subtitle: Text('เพิ่มร้านอาหาร สถานที่แนะนำ'),
+  //     onTap: () {
+  //       setState(() {
+  //         currentWidget = AddListProduct();
+  //       });
+  //       Navigator.of(context).pop();
+  //     },
+  //   );
+  // }
 
   Widget showHome() {
     return ListTile(
@@ -101,37 +101,48 @@ class _MyServiceState extends State<MyService> {
     );
   }
 
-  Widget showExit() {
+  Widget showLoginn() {
     return ListTile(
-      leading: Icon(Icons.exit_to_app, size: 36.0,color: Colors.red.shade900,),
-      title: Text('Logout'),
-      subtitle: Text('ออกจากระบบ'),
-      onTap: () => gooleSignout().whenComplete(() {
-        Navigator.pushReplacement(context, MaterialPageRoute(
-            builder: (context) => HomeScreen()
-        ));
-      }),
-      // {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen() ));
-      // },
-
+      leading: Icon(Icons.person, size: 36.0,color: Colors.red.shade800,),
+      title: Text('Login'),
+      subtitle: Text('เข้าสู่ระบบ'),
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomeScreen()));
+      },
     );
   }
 
-  Future<void> findDisplayName() async {
-    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-    FirebaseUser firebaseUser = await firebaseAuth.currentUser();
-    setState(() {
-      login = firebaseUser.displayName;
-    });
-    print('login = $login');
-  }
+  // Widget showExit() {
+  //   return ListTile(
+  //     leading: Icon(Icons.exit_to_app, size: 36.0,color: Colors.red.shade900,),
+  //     title: Text('Logout'),
+  //     subtitle: Text('ออกจากระบบ'),
+  //     onTap: () => gooleSignout().whenComplete(() {
+  //       Navigator.pushReplacement(context, MaterialPageRoute(
+  //           builder: (context) => HomeScreen()
+  //       ));
+  //     }),
+  //     // {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen() ));
+  //     // },
+  //
+  //   );
+  // }
 
-  Widget showLogin() {
-    return Text(
-      'Login by $login',
-      style: TextStyle(color: Colors.white),
-    );
-  }
+  // Future<void> findDisplayName() async {
+  //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  //   FirebaseUser firebaseUser = await firebaseAuth.currentUser();
+  //   setState(() {
+  //     login = firebaseUser.displayName;
+  //   });
+  //   print('login = $login');
+  // }
+  //
+  // Widget showLogin() {
+  //   return Text(
+  //     'Login by $login',
+  //     style: TextStyle(color: Colors.white),
+  //   );
+  // }
 
   Widget showAppName() {
     return Text(
@@ -168,7 +179,7 @@ class _MyServiceState extends State<MyService> {
           SizedBox(
             height: 6.0,
           ),
-          showLogin(),
+         // showLogin(),
         ],
       ),
     );
@@ -180,26 +191,27 @@ class _MyServiceState extends State<MyService> {
         children: <Widget>[
           showHead(),
           showListProduct(),
-          showAddList(),
+          // showAddList(),
           showHome(),
           showMueang(),
           showKathu(),
           showThalang(),
-          showExit()
+          showLoginn()
+          //showExit()
         ],
       ),
     );
   }
 
-  Widget signOutButton() {
-    return IconButton(
-      icon: Icon(Icons.exit_to_app),
-      tooltip: 'Sign Out',
-      onPressed: () {
-        myAlert();
-      },
-    );
-  }
+  // Widget signOutButton() {
+  //   return IconButton(
+  //     icon: Icon(Icons.exit_to_app),
+  //     tooltip: 'Sign Out',
+  //     onPressed: () {
+  //       myAlert();
+  //     },
+  //   );
+  // }
 
   void myAlert() {
     showDialog(
@@ -230,7 +242,7 @@ class _MyServiceState extends State<MyService> {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     await firebaseAuth.signOut().then((response) {
       MaterialPageRoute materialPageRoute =
-          MaterialPageRoute(builder: (BuildContext context) => HomeScreen());
+      MaterialPageRoute(builder: (BuildContext context) => HomeScreen());
       Navigator.of(context).pushAndRemoveUntil(
           materialPageRoute, (Route<dynamic> route) => false);
     });
@@ -250,7 +262,7 @@ class _MyServiceState extends State<MyService> {
     return Scaffold(
       appBar: AppBar(
         title: Text('PHUKET'),
-        actions: <Widget>[signOutButton()],
+        //actions: <Widget>[signOutButton()],
       ),
       body: currentWidget,
       drawer: showDrawer(),
@@ -259,7 +271,6 @@ class _MyServiceState extends State<MyService> {
 
 
   bool isSignIn = false;
-
 
   Future<void> gooleSignout() async {
     await _auth.signOut().then((onValue) {

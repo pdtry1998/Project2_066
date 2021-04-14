@@ -14,6 +14,8 @@ Color mSecondTextColor = Color(0xFFB98068);
 
 Color mSecondColor = Color(0xFFC28E79);
 
+Color mOrangeColor = Color(0xFFFF6600);
+
 Color mButtonColor = Color(0xFF000000);
 
 Color mFacebookColor = Color(0xFF3333FF);
